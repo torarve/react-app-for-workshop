@@ -7,11 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import { MsalProvider } from '@azure/msal-react';
 import { AuthenticationResult, Configuration, EventMessage, EventType, PublicClientApplication } from '@azure/msal-browser';
 
+
+
+const redirectUri = () => {
+  const location = document.location;
+  if (location.hostname === 'localhost') {
+    return `${location.protocol}//${location.hostname}:${location.port}${location.pathname}`
+  }
+  
+  return `${location.protocol}//${location.hostname}${location.pathname}`
+}
 const configuration: Configuration = {
   auth: {
     clientId: '1caeec3d-ac26-4bcd-b18c-9983f34b9525',
     authority: 'https://login.microsoftonline.com/7e793449-c4b5-4520-9737-0dcf3b24a192',
-    redirectUri: 'http://localhost:3000'
+    redirectUri: redirectUri()
   },
 }
 
