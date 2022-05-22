@@ -26,6 +26,14 @@
 
 .App-link {
   color: #61dafb;
+  font-size: inherit;
+  background-color: inherit;
+  border: 0px;
+  cursor: pointer;
+}
+
+.App-link:hover {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {
